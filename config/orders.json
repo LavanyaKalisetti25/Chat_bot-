@@ -1,0 +1,17 @@
+[
+  {
+    "category": "Coupons & Offers",
+    "question": "How do I apply a coupon?",
+    "answer": "Go to your cart and enter the coupon code."
+  },
+  {
+    "category": "Coupons & Offers",
+    "question": "Can I use multiple coupons?",
+    "answer": "No, only one coupon per order."
+  },
+  {
+    "category": "Orders",
+    "question": "How do I track my order?",
+    "answer": "Go to 'My Orders' and click 'Track Order'."
+  }
+]
