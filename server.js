@@ -1,6 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const fs = require("fs");
+const path=require('path')
 const app = express();
 const PORT = 5000;
 
@@ -8,9 +9,16 @@ app.use(cors());
 app.use(express.json());
 
 // Load JSON dataset
-const data = JSON.parse(fs.readFileSync("data.json", "utf-8"));
+const dataPath = path.join(__dirname, "data.json");
 
-// Endpoint to get all categories
+// Check if file exists
+if (!fs.existsSync(dataPath)) {
+  console.error("data.json not found in folder:", dataPath);
+  process.exit(1);
+}
+
+// Read the file
+const data = JSON.parse(fs.readFileSync(dataPath, "utf-8"));
 app.get("/categories", (req, res) => {
   const categories = [...new Set(data.map(item => item.category))];
   res.json(categories);
